@@ -16,7 +16,7 @@ function updateTime() {
   updateTime();
   setInterval(updateTime, 1000);
 
-// Weather API endpoint
+// Weather API 
 const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const apiKey = 'c7f7832141ea42bb815834cb6c1fd2aa';
 
@@ -62,13 +62,13 @@ function handleUnitChange(event) {
   }
 }
 
-// Add event listener for radio button change event
+// event listener for radio button change event
 const celsiusRadioButton = document.getElementById('celsius');
 const fahrRadioButton = document.getElementById('fahr');
 celsiusRadioButton.addEventListener('change', handleUnitChange);
 fahrRadioButton.addEventListener('change', handleUnitChange);
 
-// Update weather information on page load with default units
+// call on updateWeather
 updateWeather();
 
 
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
       currentIndex = index;
     }
   
-    // Create thumbnails and add click event listener
+    //  thumbnails and click event listener
     imageFilenames.forEach((filename, index) => {
       const img = document.createElement('img');
       img.src = `assets/gallery/${filename}`;
@@ -111,15 +111,15 @@ document.addEventListener("DOMContentLoaded", function() {
   const paidProducts = ['img6.png', 'img1.png','img3.png','img4.png'];
   const freeProducts = ['img2.png','img5.png'];
 
-  // Get the products area container
+  // products area container
   const productsArea = document.querySelector('.products-area');
 
-  // Function to populate the products area with images based on the selected filter
+  // Function to populate the products area with images
   function displayProducts(products) {
       // Clear the products area
       productsArea.innerHTML = '';
 
-      // Loop through the product filenames array
+      // Loop for the product filenames array
       products.forEach(filename => {
           // Create an <img> element
           const img = document.createElement('img');
@@ -133,12 +133,12 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
 
-  // Get the radio inputs
+  // radio inputs
   const allRadio = document.getElementById('all');
   const paidRadio = document.getElementById('paid');
   const freeRadio = document.getElementById('free');
 
-  // Add event listeners to radio inputs
+  // event listeners for radio inputs
   allRadio.addEventListener('change', () => displayProducts(allProducts));
   paidRadio.addEventListener('change', () => displayProducts(paidProducts));
   freeRadio.addEventListener('change', () => displayProducts(freeProducts));
@@ -161,30 +161,30 @@ document.addEventListener("DOMContentLoaded", function() {
            img.alt = product.title;
            productDiv.appendChild(img);
  
-           // Create a div for product details
+           // div for product details
            const productDetails = document.createElement('div');
            productDetails.classList.add('product-details');
            
  
-           // Create and append the title element to productDetails
+           // Creating and appending the title element to productDetails
            const title = document.createElement('h3');
            title.textContent = product.title;
            title.classList.add('product-title');
            productDetails.appendChild(title);
  
-           // Create and append the author element to productDetails
+           // Creating and appending the author element to productDetails
            const author = document.createElement('p');
            author.textContent = `${product.author}`;
            author.classList.add('product-author');
            productDetails.appendChild(author);
  
-           // Create and append the price element to productDetails
+           // Creating and appending the price element to productDetails
            const priceTitle = document.createElement('p');
            priceTitle.textContent = 'Price: ';
            priceTitle.classList.add('price-title'); // Add class 'price-title'
            productDetails.appendChild(priceTitle);
 
-           // Create and append the price value element to productDetails
+           // Creating and appending the price value element to productDetails
            const productPrice = document.createElement('span');
            if (product.price === 0) {
                productPrice.textContent = 'Free';
@@ -195,10 +195,10 @@ document.addEventListener("DOMContentLoaded", function() {
            productPrice.classList.add('product-price'); // Add class 'price-value'
            productDetails.appendChild(productPrice);
 
-           // Append productDetails to productDiv
+           // Appending productDetails to productDiv
            productDiv.appendChild(productDetails);
 
-           // Append the productDiv to the products area
+           // Appending the productDiv to the products area
            productsArea.appendChild(productDiv);
        });
  }
@@ -258,11 +258,11 @@ document.addEventListener('DOMContentLoaded', function() {
       closeMenu();
   }
 
-  // Add event listeners
+  //  event listeners
   openNavMenu.addEventListener('click', openMenu);
   closeNavMenu.addEventListener('click', closeMenu);
 
-  // Add event listener to each menu item to close the menu when clicked
+  //  event listener for each menu item to close the menu when clicked
   navItems.forEach(item => {
       item.addEventListener('click', closeMenuOnClick);
   });
